@@ -1,14 +1,14 @@
 {
-  "name": "PaddleGuidePOC",
-  "version": "0.0.1",
-  "dependencies": {
-    "express": "3.x.x",
-    "mongodb": "latest",
-    "mongoose": "latest",
-    "request": "latest"
-  },
-  "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
-  }
+    "name": "PaddleGuidePOC",
+    "version": "0.0.1",
+    "dependencies": {
+        "express": "3.x.x",
+        "mongodb": "latest",
+        "mongoose": "latest",
+        "request": "latest"
+    },
+    "engines": {
+        "node": "0.8.x",
+        "npm": "1.1.x"
+    }
 }

@@ -1,13 +1,13 @@
 define([
-  'underscore',
-  'backbone',
-  'base/base.model'
-], function(_, Backbone, BaseModel){
-  "use strict";
+    'underscore',
+    'backbone',
+    'base/base.model'
+], function (_, Backbone, BaseModel) {
+    "use strict";
 
-  var GuideModel = BaseModel.extend({
-  });
+    var GuideModel = BaseModel.extend({
+    });
 
-  return GuideModel;
+    return GuideModel;
 });
 

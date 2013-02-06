@@ -1,11 +1,11 @@
 define([
-  'underscore',
-  'backbone'
-], function(_, Backbone){
-  "use strict";
+    'underscore',
+    'backbone'
+], function (_, Backbone) {
+    "use strict";
 
-  var BaseCollection = Backbone.Collection.extend({
-  });
+    var BaseCollection = Backbone.Collection.extend({
+    });
 
-  return BaseCollection;
+    return BaseCollection;
 });

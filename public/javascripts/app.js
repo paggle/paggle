@@ -1,17 +1,17 @@
 define([
-  'jquery',
-  'underscore',
-  'backbone',
-  'router'
-], function($, _, Backbone, Router){
-  "use strict";
+    'jquery',
+    'underscore',
+    'backbone',
+    'router'
+], function ($, _, Backbone, Router) {
+    "use strict";
 
-  var initialize = function(){
-    Router.initialize();
-    Backbone.history.start();//{pushState: true, root: "/guides"});
-  };
+    var initialize = function () {
+        Router.initialize();
+        Backbone.history.start();//{pushState: true, root: "/guides"});
+    };
 
-  return {
-    initialize: initialize
-  };
+    return {
+        initialize: initialize
+    };
 });
