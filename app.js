@@ -84,7 +84,12 @@
                 if (err && err != 'MongoError: ns not found') {
                     console.log(err);
                 }
-                callback();
+                mongoose.connection.collections.logs.drop(function (err) {
+                    if (err && err != 'MongoError: ns not found') {
+                        console.log(err);
+                    }
+                    callback();
+                });
             });
         };
     }();
