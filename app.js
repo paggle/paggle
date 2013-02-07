@@ -3,9 +3,10 @@
 
     var application_root = __dirname,
         http = require('http'),
-        express = require("express"),
-        guide = require("./controllers/guide"),
-        path = require("path"),
+        express = require('express'),
+        guide = require('./controllers/guide'),
+        log = require('./controllers/log'),
+        path = require('path'),
         mongoose = require('mongoose');
 
     var app = express();
@@ -19,7 +20,18 @@
         modified: { type: Date, 'default': Date.now }
     });
 
+    var Log = new mongoose.Schema({
+        id: { type: String, required: true },
+        user: { type: String, reqired: true },
+        location: { type: String, required: true },
+        description: { type: String, required: true },
+        date: { type: Date, 'default': Date.now },
+        modified: { type: Date, 'default': Date.now }
+        // TODO(bp): add appropriate fields
+    });
+
     guide.GuideModel = mongoose.model('Guide', Guide);
+    log.LogModel = mongoose.model('Log', Log);
 
 // Config
 
@@ -45,6 +57,12 @@
     app.get('/guides/:river', guide.show);
     app.put('/guides/:river', guide.update);
     app.delete('/guides/:river', guide.destroy);
+
+    app.get('/logs', log.index);
+    app.post('/logs', log.create);
+    app.get('/logs/:id', log.show);
+    app.put('/logs/:id', log.update);
+    app.delete('/logs/:id', log.destroy);
 
 
     module.exports = new function () {

@@ -50,5 +50,41 @@
                 });
             });
         }
+
     });
+
+    buster.testCase("Log", {
+        setUp: function () {
+            this.app = require("../app");
+            this.app.dbName = 'bustertest';
+            this.app.open(5050);
+        },
+
+        tearDown: function (done) {
+            var self = this;
+            this.app.emptyDb(function () {
+                self.app.close(function () {
+                    done();
+                });
+            });
+        },
+
+        "create log and fetch it": function (done) {
+            request.post({
+                uri: "http://localhost:5050/logs",
+                json: {user: "RecklessPaddler", location: "Gråura", description: "carnage!!"}}, function (err, res, body) {
+                request.get("http://localhost:5050/logs", function (err, res, body) {
+                    var object = JSON.parse(body);
+                    assert.equals(object.length, 1);
+                    console.log(object[0].id);
+                    assert.equals(object[0].user, "RecklessPaddler");
+                    done();
+                });
+            });
+        }
+
+    });
+
+
+
 }());

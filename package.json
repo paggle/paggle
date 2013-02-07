@@ -6,7 +6,7 @@
         "mongodb": "latest",
         "mongoose": "latest",
         "request": "latest",
-        "buster": "latest"
+        "node-uuid": "latest"
     },
     "engines": {
         "node": "0.8.x",
