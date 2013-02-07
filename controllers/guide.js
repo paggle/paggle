@@ -11,13 +11,13 @@
         });
     };
 
-    exports.create = function (req, res) {
+    exports.create = function (request, response) {
         var guide;
 
         guide = new exports.GuideModel({
-            river: req.body.river,
-            grade: req.body.grade,
-            description: req.body.description
+            river: request.body.river,
+            grade: request.body.grade,
+            description: request.body.description
         });
         guide.save(function (err) {
             if (!err) {
@@ -26,11 +26,11 @@
                 return console.log(err);
             }
         });
-        return res.send(guide);
+        return response.send(guide);
     };
 
-    exports.show = function (req, res) {
-        return exports.GuideModel.findOne({ river: req.params.river}, function (err, guide) {
+    exports.show = function (request, res) {
+        return exports.GuideModel.findOne({ river: request.params.river}, function (err, guide) {
             if (!err) {
                 return res.send(guide);
             } else {

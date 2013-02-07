@@ -36,10 +36,6 @@
         res.send('pong');
     });
 
-    app.get('/oyvind', function (req, res) {
-        res.send('peter');
-    });
-
     app.get('/guides', guide.index);
     app.post('/guides', guide.create);
     app.get('/guides/:river', guide.show);
